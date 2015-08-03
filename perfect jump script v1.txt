@@ -1,0 +1,33 @@
+using UnityEngine;
+using System.Collections;
+
+public class Jump2 : MonoBehaviour {
+
+	public float jumpheight = 10; 
+
+	// Use this for initialization
+
+	void OnCollsionEnter(Collision collision) 
+	{
+		print ("Enter");
+	}
+	
+	void OnCollsionStay(Collision collision) 
+	{
+		print ("Stay");
+		//gameObject.transform.position = Vector3.Lerp (rigidbody.transform.position, Vector3(0, 0, 0), 10);
+		
+	}
+	void OnCollsionExit(Collision collision) 
+	{
+		print ("Exit");
+	}
+	// Update is called once per frame
+	void Update () 
+	{
+		if (Input.GetButton("Jump"))
+		{
+			rigidbody.velocity = transform.up * jumpheight;
+		}
+	}
+}
